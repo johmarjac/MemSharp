@@ -19,8 +19,13 @@ BOOL WINAPI DllMain(HMODULE hModule, DWORD dwReason, LPVOID pReserved)
 
 void OnAttach(HMODULE hModule)
 {
+	if (AllocConsole())
+		freopen("CONOUT$", "w", stdout);
+
 	{
 		auto server = gcnew MemSharpServer();
 		server->Start();
 	}
+
+	FreeConsole();
 }
