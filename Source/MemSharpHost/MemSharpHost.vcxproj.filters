@@ -13,11 +13,23 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Header Files\Handlers">
-      <UniqueIdentifier>{97bdfc3c-3c2f-4a27-9768-325776ef04ff}</UniqueIdentifier>
+    <Filter Include="Header Files\Network">
+      <UniqueIdentifier>{74c2a9c8-0685-43ed-8fa7-bfb60a55b533}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Handlers">
-      <UniqueIdentifier>{2ccc0158-2feb-43a7-8be0-95aaeaefb4d4}</UniqueIdentifier>
+    <Filter Include="Source Files\Network">
+      <UniqueIdentifier>{56eb2503-8ee5-41c5-b7ea-dcf58cb68007}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Network\Handler">
+      <UniqueIdentifier>{ed29bdf5-d316-4436-bf51-0768af0679d4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Network\Handler">
+      <UniqueIdentifier>{7de74a6b-6cab-49e9-a6fd-06a479a5acb0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Scripting">
+      <UniqueIdentifier>{a8cdc317-39a4-43f6-9f95-3043b92a24f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Scripting">
+      <UniqueIdentifier>{b7eec84f-c6f7-4579-bd83-4c8a0eec3b25}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -27,55 +39,67 @@
     <ClInclude Include="Resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MemSharpServer.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MemSharpUser.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="MemSharpHost.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MemSharpPacketHandler.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="PacketHandlerAttribute.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ShutdownHandler.h">
-      <Filter>Header Files\Handlers</Filter>
+    <ClInclude Include="ScriptDomainHandler.h">
+      <Filter>Header Files\Network\Handler</Filter>
     </ClInclude>
     <ClInclude Include="SetWorkingDirectoryHandler.h">
-      <Filter>Header Files\Handlers</Filter>
+      <Filter>Header Files\Network\Handler</Filter>
+    </ClInclude>
+    <ClInclude Include="ShutdownHandler.h">
+      <Filter>Header Files\Network\Handler</Filter>
+    </ClInclude>
+    <ClInclude Include="ScriptDomain.h">
+      <Filter>Header Files\Scripting</Filter>
+    </ClInclude>
+    <ClInclude Include="MemSharpPacketHandler.h">
+      <Filter>Header Files\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="MemSharpServer.h">
+      <Filter>Header Files\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="MemSharpUser.h">
+      <Filter>Header Files\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="PacketHandlerAttribute.h">
+      <Filter>Header Files\Network</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="MemSharpHost.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="AssemblyInfo.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MemSharpServer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MemSharpUser.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MemSharpHost.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MemSharpPacketHandler.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="PacketHandlerAttribute.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="ShutdownHandler.cpp">
-      <Filter>Source Files\Handlers</Filter>
+      <Filter>Source Files\Network\Handler</Filter>
     </ClCompile>
     <ClCompile Include="SetWorkingDirectoryHandler.cpp">
-      <Filter>Source Files\Handlers</Filter>
+      <Filter>Source Files\Network\Handler</Filter>
+    </ClCompile>
+    <ClCompile Include="ScriptDomainHandler.cpp">
+      <Filter>Source Files\Network\Handler</Filter>
+    </ClCompile>
+    <ClCompile Include="ScriptDomain.cpp">
+      <Filter>Source Files\Scripting</Filter>
+    </ClCompile>
+    <ClCompile Include="PacketHandlerAttribute.cpp">
+      <Filter>Source Files\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="MemSharpUser.cpp">
+      <Filter>Source Files\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="MemSharpServer.cpp">
+      <Filter>Source Files\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="MemSharpPacketHandler.cpp">
+      <Filter>Source Files\Network</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -1,5 +1,6 @@
 #pragma once
 #include "MemSharpServer.h"
+#include "ScriptDomain.h"
 
 using namespace System;
 
@@ -27,6 +28,7 @@ public:
 
 public:
 	MemSharpServer^ Server;
+	ScriptDomain^ ScriptDomain;
 	property String^ WorkingDirectory;
 
 private:

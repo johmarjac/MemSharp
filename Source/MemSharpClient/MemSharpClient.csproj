@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ThirdParty\Ether.Network\src\Ether.Network\Ether.Network.csproj" />
+    <ProjectReference Include="..\..\ThirdParty\Ether.Network\src\Ether.Network\Ether.Network.csproj" />
   </ItemGroup>
 
 </Project>

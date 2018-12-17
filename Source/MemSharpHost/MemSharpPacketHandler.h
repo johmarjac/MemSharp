@@ -11,7 +11,9 @@ public:
 	enum class OpCode
 	{
 		Shutdown,
-		SetWorkingDirectory
+		SetWorkingDirectory,
+		StartScriptDomain,
+		StopScriptDomain
 	};
 
 public:
