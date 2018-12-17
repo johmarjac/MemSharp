@@ -2,7 +2,6 @@
 #include "MemSharpServer.h"
 
 using namespace System;
-using namespace MemSharpHost;
 
 MemSharpServer::MemSharpServer()
 {

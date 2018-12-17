@@ -1,9 +1,5 @@
 #include "stdafx.h"
-
 #include "MemSharpHost.h"
-#include "MemSharpServer.h"
-
-using namespace MemSharpHost;
 
 BOOL WINAPI DllMain(HMODULE hModule, DWORD dwReason, LPVOID pReserved)
 {
@@ -23,9 +19,11 @@ void OnAttach(HMODULE hModule)
 		freopen("CONOUT$", "w", stdout);
 
 	{
-		auto server = gcnew MemSharpServer();
-		server->Start();
+		MemSharpHost::Instance
+			->Server
+			->Start();
 	}
 
+	printf("MemSharpServer has been stopped!\n");
 	FreeConsole();
 }
