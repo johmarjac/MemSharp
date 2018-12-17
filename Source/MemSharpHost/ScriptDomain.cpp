@@ -52,7 +52,7 @@ ScriptDomain ^ ScriptDomain::Load(String ^ path)
 void ScriptDomain::Unload(ScriptDomain ^% domain)
 {
 	Console::WriteLine("Unloading Script Domain...");
-	
+
 	try
 	{
 		AppDomain::Unload(domain->Domain);
@@ -71,9 +71,9 @@ void ScriptDomain::Start()
 	for each(auto scriptType in scriptTypes)
 	{
 		auto script = CreateScriptInstance(scriptType->Item2);
-		
+
 		if (script)
-			script->Initialize();
+			Task::Factory->StartNew(gcnew Action(script, &Script::Initialize));
 		else
 		{
 			Console::WriteLine("Script could not be instanciated.");

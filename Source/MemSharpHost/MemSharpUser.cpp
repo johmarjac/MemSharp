@@ -8,7 +8,7 @@ MemSharpUser::MemSharpUser()
 
 void MemSharpUser::HandleMessage(INetPacketStream ^ packet)
 {
-	MemSharpPacketHandler::OpCode opCode = (MemSharpPacketHandler::OpCode)packet->Read<UInt16>();
+	OpCode opCode = (OpCode)packet->Read<UInt16>();
 	
 	auto handler = MemSharpPacketHandler::GetHandler(opCode);
 	if (!handler)
@@ -17,6 +17,6 @@ void MemSharpUser::HandleMessage(INetPacketStream ^ packet)
 		return;
 	}
 
-	Console::WriteLine("Executing '{0}' Handler!", Enum::GetName(MemSharpPacketHandler::OpCode::typeid, opCode));
+	Console::WriteLine("Executing '{0}' Handler!", Enum::GetName(OpCode::typeid, opCode));
 	handler->Invoke(packet);
 }

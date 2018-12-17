@@ -1,5 +1,6 @@
 #pragma once
 
+using namespace MemSharpCommon;
 using namespace Ether::Network::Common;
 using namespace Ether::Network::Packets;
 

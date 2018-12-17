@@ -2,20 +2,12 @@
 
 using namespace System;
 using namespace System::Collections::Generic;
+using namespace MemSharpCommon;
 using namespace Ether::Network::Server;
 using namespace Ether::Network::Packets;
 
 ref class MemSharpPacketHandler
 {
-public:
-	enum class OpCode
-	{
-		Shutdown,
-		SetWorkingDirectory,
-		StartScriptDomain,
-		StopScriptDomain
-	};
-
 public:
 	static MemSharpPacketHandler();
 

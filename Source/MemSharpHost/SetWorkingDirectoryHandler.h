@@ -6,6 +6,6 @@
 ref class SetWorkingDirectoryHandler
 {
 public:
-	[PacketHandlerAttribute(MemSharpPacketHandler::OpCode::SetWorkingDirectory)]
+	[PacketHandlerAttribute(OpCode::SetWorkingDirectory)]
 	static void Handle(INetPacketStream^ packet);
 };

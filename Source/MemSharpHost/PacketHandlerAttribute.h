@@ -2,13 +2,14 @@
 #include "MemSharpPacketHandler.h"
 
 using namespace System;
+using namespace MemSharpCommon;
 
 [AttributeUsageAttribute(AttributeTargets::Method, AllowMultiple = false, Inherited = false)]
 ref class PacketHandlerAttribute : public Attribute
 {
 public:
-	PacketHandlerAttribute(MemSharpPacketHandler::OpCode opCode);
+	PacketHandlerAttribute(MemSharpCommon::OpCode opCode);
 
 public:
-	MemSharpPacketHandler::OpCode OpCode;
+	MemSharpCommon::OpCode OpCode;
 };

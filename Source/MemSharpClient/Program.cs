@@ -1,83 +1,60 @@
-﻿using Ether.Network.Packets;
+﻿using MemSharpClient.Network;
 using System;
 
 namespace MemSharpClient
 {
     class Program
     {
-        enum OpCode : ushort
-        {
-            Shutdown,
-            SetWorkingDirectory,
-            StartScriptDomain,
-            StopScriptDomain
-        }
-
         static void Main(string[] args)
         {
             using (var client = new Network.MemSharpClient())
             {
                 client.Connect();
-
                 if (!client.IsConnected)
-                {
-                    Console.WriteLine("Unable to connect to MemSharpServer!");
-                    Console.ReadLine();
                     return;
-                }
 
-                Console.WriteLine("Setting Working Directory...");
-                Console.ReadLine();
+                MemSharpPacketFactory.SendWorkingDirectory(client, @"E:\Other\Repositories\MemSharp\Samples\MemSharpSampleScript\bin\Debug\netstandard2.0");
+                MemSharpPacketFactory.SendStartScriptDomain(client);
 
-                using (var packet = new NetPacket())
+                Console.WriteLine("ScriptDomain is running...");
+               
+                while(true)
                 {
-                    packet.Write((ushort)OpCode.SetWorkingDirectory);
-                    packet.Write(@"E:\Desktop\IgniteBot");
+                    bool bExitLoop = false;
+                    var input = Console.ReadLine();
+                    switch(input)
+                    {
+                        case "start":
+                            Console.WriteLine("Starting ScriptDomain...");
+                            MemSharpPacketFactory.SendStartScriptDomain(client);
+                            break;
+                        case "stop":
+                            Console.WriteLine("Stopping ScriptDomain...");
+                            MemSharpPacketFactory.SendStopScriptDomain(client);
+                            break;
+                        case "workingdir":
+                            Console.Write("Enter path to working directory: ");
+                            MemSharpPacketFactory.SendWorkingDirectory(client, Console.ReadLine());
+                            Console.WriteLine("Server has been restarted...");
+                            break;
+                        case "restart":
+                            Console.WriteLine("Restarting ScriptDomain...");
+                            MemSharpPacketFactory.SendStopScriptDomain(client);
+                            MemSharpPacketFactory.SendStartScriptDomain(client);
+                            break;
+                        case "shutdown":
+                            Console.WriteLine("Shutting down Server...");
+                            MemSharpPacketFactory.SendShutdownServer(client);
+                            bExitLoop = true;
+                            break;
+                    }
 
-                    client.Send(packet);
-                }
-
-                Console.ReadLine();
-
-                Console.WriteLine("Starting ScriptDomain...");
-                Console.ReadLine();
-
-                using (var packet = new NetPacket())
-                {
-                    packet.Write((ushort)OpCode.StartScriptDomain);
-
-                    client.Send(packet);
-                }
-
-                Console.ReadLine();
-
-                Console.WriteLine("Stopping ScriptDomain...");
-                Console.ReadLine();
-
-                using (var packet = new NetPacket())
-                {
-                    packet.Write((ushort)OpCode.StopScriptDomain);
-
-                    client.Send(packet);
-                }
-
-                Console.ReadLine();
-
-                Console.WriteLine("Shuting down MemSharpServer...");
-                Console.ReadLine();
-
-                using (var packet = new NetPacket())
-                {
-                    packet.Write((ushort)OpCode.Shutdown);
-
-                    client.Send(packet);
+                    if (bExitLoop)
+                        break;
                 }
 
                 client.Disconnect();
             }
-
-            Console.WriteLine("MemSharpClient will now exit!");
-            Console.ReadLine();
         }
     }
 }

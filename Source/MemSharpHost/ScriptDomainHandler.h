@@ -8,9 +8,9 @@ using namespace System::IO;
 ref class ScriptDomainHandler
 {
 public:
-	[PacketHandlerAttribute(MemSharpPacketHandler::OpCode::StartScriptDomain)]
+	[PacketHandlerAttribute(OpCode::StartScriptDomain)]
 	static void HandleStart(INetPacketStream^ packet);
 
-	[PacketHandlerAttribute(MemSharpPacketHandler::OpCode::StopScriptDomain)]
+	[PacketHandlerAttribute(OpCode::StopScriptDomain)]
 	static void HandleStop(INetPacketStream^ packet);
 };

@@ -3,6 +3,7 @@
 using namespace System;
 using namespace System::IO;
 using namespace System::Reflection;
+using namespace System::Threading::Tasks;
 using namespace System::Collections::Generic;
 using namespace MemSharpCommon;
 

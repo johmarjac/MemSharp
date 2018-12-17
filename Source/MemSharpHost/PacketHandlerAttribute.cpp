@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "PacketHandlerAttribute.h"
 
-PacketHandlerAttribute::PacketHandlerAttribute(MemSharpPacketHandler::OpCode opCode)
+PacketHandlerAttribute::PacketHandlerAttribute(MemSharpCommon::OpCode opCode)
 {
 	this->OpCode = opCode;
 }

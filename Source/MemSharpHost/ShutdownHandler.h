@@ -5,6 +5,6 @@
 ref class ShutdownHandler
 {
 public:
-	[PacketHandlerAttribute(MemSharpPacketHandler::OpCode::Shutdown)]
+	[PacketHandlerAttribute(OpCode::Shutdown)]
 	static void Handle(INetPacketStream^ packet);
 };
