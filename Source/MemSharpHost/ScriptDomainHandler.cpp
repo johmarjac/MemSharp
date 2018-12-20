@@ -27,7 +27,7 @@ void ScriptDomainHandler::HandleStop(INetPacketStream ^ packet)
 		Console::WriteLine("ScriptDomain is not yet started.");
 	else
 	{
-		ScriptDomain::Unload(MemSharpHost::Instance->ScriptDomain);
 		Console::WriteLine("ScriptDomain has been stopped.");
+		ScriptDomain::Unload(MemSharpHost::Instance->ScriptDomain);
 	}
 }

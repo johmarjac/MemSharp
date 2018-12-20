@@ -7,6 +7,7 @@ ScriptDomain::ScriptDomain()
 	this->Domain = AppDomain::CurrentDomain;
 	//this->Domain->AssemblyResolve += gcnew System::ResolveEventHandler(&ScriptDomain::HandleResolve);
 	this->scriptTypes = gcnew List<Tuple<String^, Type^>^>();
+	this->runningScripts = gcnew List<Script^>();
 }
 
 ScriptDomain ^ ScriptDomain::Load(String ^ path)
@@ -51,8 +52,8 @@ ScriptDomain ^ ScriptDomain::Load(String ^ path)
 
 void ScriptDomain::Unload(ScriptDomain ^% domain)
 {
-	Console::WriteLine("Unloading Script Domain...");
-
+	Console::WriteLine("Unloading ScriptDomain...");
+	
 	try
 	{
 		AppDomain::Unload(domain->Domain);
@@ -71,6 +72,8 @@ void ScriptDomain::Start()
 	for each(auto scriptType in scriptTypes)
 	{
 		auto script = CreateScriptInstance(scriptType->Item2);
+
+		this->runningScripts->Add(script);
 
 		if (script)
 			Task::Factory->StartNew(gcnew Action(script, &Script::Initialize));

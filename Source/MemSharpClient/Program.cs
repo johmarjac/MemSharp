@@ -1,5 +1,6 @@
 ﻿using MemSharpClient.Network;
 using System;
+using System.Diagnostics;
 
 namespace MemSharpClient
 {
@@ -13,7 +14,10 @@ namespace MemSharpClient
                 if (!client.IsConnected)
                     return;
 
-                MemSharpPacketFactory.SendWorkingDirectory(client, @"E:\Other\Repositories\MemSharp\Samples\MemSharpSampleScript\bin\Debug\netstandard2.0");
+                if(!Debugger.IsAttached)
+                    MemSharpPacketFactory.SendWorkingDirectory(client, @"E:\Other\Repositories\IgniteFun\IgniteFun\bin\Debug\netstandard2.0");
+                else
+                    MemSharpPacketFactory.SendWorkingDirectory(client, @"E:\Other\Repositories\MemSharp\Samples\MemSharpSampleScript\bin\Debug\netstandard2.0");
                 MemSharpPacketFactory.SendStartScriptDomain(client);
 
                 Console.WriteLine("ScriptDomain is running...");

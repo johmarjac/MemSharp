@@ -25,5 +25,10 @@ namespace MemSharpSampleScript
                 Console.WriteLine(Encoding.Default.GetString(BitConverter.GetBytes(header)));
             }
         }
+
+        public override void Uninitialize()
+        {
+            Console.WriteLine("Unloaded");
+        }
     }
 }

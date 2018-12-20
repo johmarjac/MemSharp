@@ -25,6 +25,7 @@ private:
 
 public:
 	property AppDomain^ Domain;
+	List<Script^>^ runningScripts;
 
 private:
 	List<Tuple<String^, Type^>^>^ scriptTypes;
