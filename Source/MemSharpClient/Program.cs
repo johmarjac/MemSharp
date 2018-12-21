@@ -15,9 +15,9 @@ namespace MemSharpClient
                 if (!client.IsConnected)
                     return;
 
-                if(args.Length == 1 && Directory.Exists(args[1]))
+                if(args.Length == 1 && Directory.Exists(args[0]))
                 {
-                    MemSharpPacketFactory.SendWorkingDirectory(client, args[1]);
+                    MemSharpPacketFactory.SendWorkingDirectory(client, args[0]);
                 }
                 else
                 {

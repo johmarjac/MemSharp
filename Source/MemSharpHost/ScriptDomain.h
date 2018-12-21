@@ -17,6 +17,7 @@ public:
 
 	void Start();
 
+	virtual Object^ InitializeLifetimeService() override;
 private:
 	bool LoadScript(String^ filename);
 	bool LoadAssembly(String^ filename);

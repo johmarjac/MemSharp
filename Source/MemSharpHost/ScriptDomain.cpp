@@ -84,6 +84,11 @@ void ScriptDomain::Start()
 	}
 }
 
+Object ^ ScriptDomain::InitializeLifetimeService()
+{
+	return nullptr;
+}
+
 bool ScriptDomain::LoadScript(String^ filename)
 {
 	throw gcnew NotImplementedException();
