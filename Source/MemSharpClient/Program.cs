@@ -1,6 +1,7 @@
 ﻿using MemSharpClient.Network;
 using System;
 using System.Diagnostics;
+using System.IO;
 
 namespace MemSharpClient
 {
@@ -14,14 +15,24 @@ namespace MemSharpClient
                 if (!client.IsConnected)
                     return;
 
-                if(!Debugger.IsAttached)
-                    MemSharpPacketFactory.SendWorkingDirectory(client, @"E:\Other\Repositories\IgniteFun\IgniteFun\bin\Debug\netstandard2.0");
+                if(args.Length == 1 && Directory.Exists(args[1]))
+                {
+                    MemSharpPacketFactory.SendWorkingDirectory(client, args[1]);
+                }
                 else
-                    MemSharpPacketFactory.SendWorkingDirectory(client, @"E:\Other\Repositories\MemSharp\Samples\MemSharpSampleScript\bin\Debug\netstandard2.0");
-                MemSharpPacketFactory.SendStartScriptDomain(client);
-
-                Console.WriteLine("ScriptDomain is running...");
-               
+                {
+                    Console.WriteLine("Enter Script/Assembly Path: ");
+                    var inp = Console.ReadLine();
+                    if (Directory.Exists(inp))
+                        MemSharpPacketFactory.SendWorkingDirectory(client, inp);
+                    else
+                    {
+                        Console.WriteLine("Directory does not exist.");
+                        return;
+                    }
+                }
+                
+                Console.WriteLine("Available commands: start, stop, workingdir <path>, restart, shutdown");
                 while(true)
                 {
                     bool bExitLoop = false;
